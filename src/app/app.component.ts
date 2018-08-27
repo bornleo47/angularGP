@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'demoService';
+
+
+
+constructor(private http: HttpClient){
+
+
+
+}
+
+submit(f){
+this.http.post("http://localhost:8080/create", f.value)
+.subscribe(() => {console.log(f.value)});
+
+
+
+  }
+
+
+
 }
